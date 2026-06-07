@@ -1,50 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.calculator {
+  width: 90%;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background-color: green;
+}
+
+h3 {
+  padding: 15px;
+  color: white;
+  font-size: 30px;
+  margin-top: 0px;
+  text-align: center;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: red;
-  font-family: Arial, sans-serif;
 }
 
 .calculator {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  width: 270px;
+  width: fit-content;
+  max-width: 420px;
   background-color: green;
 }
 
 .display {
   width: 100%;
   height: 50px;
-  margin-left: -10px;
   margin-bottom: 15px;
   font-size: 24px;
   padding: 10px;
   border: none;
   border-radius: 8px;
   background: #f9f9f9;
+  box-sizing: border-box;
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(60px, 80px));
   gap: 10px;
 }
 
 button {
-  padding: 20px;
+  display: flex;
+  width: 100%;
+  height: 80px;
   font-size: 18px;
   border: none;
+  aspect-ratio: 1;
   border-radius: 10px;
   cursor: pointer;
   background: #ddd;
   transition: 0.2s;
+  text-align: center;
+  justify-content: center;
 }
 
 button:hover {
-  background: #bbb;
+  color: white;
+  background: black;
 }
 
 .equal {
@@ -56,4 +87,65 @@ button:hover {
 .clear {
   background: #f44336;
   color: white;
+}
+
+
+
+/* Large Screens Desktop */
+
+@media (min-width: 1200px) {
+  .calculator {
+    width: 350px;
+    padding: 30px;
+  }
+
+  .display {
+    height: 60px;
+    font-size: 30px;
+  }
+
+  button {
+    padding: 25px;
+    font-size: 22px;
+  }
+}
+
+/* Medium Screens Laptop */
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .calculator {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .display {
+    width: 100%;
+  }
+
+  button {
+    padding: 22px;
+    font-size: 20px;
+  }
+}
+
+/* Small Screens Tablet & Mobile */
+
+@media (max-width: 767px) {
+  .calculator {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px;
+  }
+
+  .display {
+    height: 50px;
+    font-size: 22px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  button {
+    padding: 18px;
+    font-size: 18px;
+  }
 }
